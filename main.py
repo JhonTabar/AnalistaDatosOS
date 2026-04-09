@@ -30,6 +30,9 @@ df_ventas["producto"].nunique()
 
 df_ventas['producto'].value_counts()
 
+df_sondeo = (df_ventas["sucursal"].unique(), df_ventas["producto"].nunique(), df_ventas['producto'].value_counts())
+
+print(df_sondeo)
 
 # Reto 3: Limpieza de datos profunda
 
@@ -44,9 +47,13 @@ df_ventas["sucursal"] = df_ventas["sucursal"].astype('category')
 
 ventas_fuertes = df_ventas[df_ventas['precio_unitario'] > 150.0]
 
-filtro = (df_ventas['sucursal'] == 'Norte') & (df_ventas['precio_unitario'] > 150.0)
+print(ventas_fuertes)
+
+filtro = (df_ventas['sucursal'] == 'Norte') & (df_ventas['cantidad'] >= 2)
 
 df_filtrado = df_ventas[filtro]
+
+print(df_filtrado)
 
 # Reto 5: Filtrado inteligente
 
